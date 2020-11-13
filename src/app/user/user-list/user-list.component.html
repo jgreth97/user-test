@@ -1,0 +1,31 @@
+<div>
+    <H3>User Table</H3>
+    <table class= "table table-sm">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Reviewer</th>
+            <th>Admin</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor= "let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.password | passwordD}}</td>
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.reviewer | bool: "fr"}}</td>
+            <!--Changing langue using locale | bool:"fr"-->
+            <td>{{user.admin | bool: "fr"}}</td>
+            <td>
+                <!--Links user to somewhere else-->
+                <a routerLink="/user/edit/{{user.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
